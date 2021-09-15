@@ -92,8 +92,6 @@ Class | Method | HTTP request | Description
 - [OrganizationsOrganization](docs/Model/OrganizationsOrganization.md)
 - [UsersListUsersResponse](docs/Model/UsersListUsersResponse.md)
 - [UsersUser](docs/Model/UsersUser.md)
-- [V1CopyFnaResponse](docs/Model/V1CopyFnaResponse.md)
-- [V1CopyFnaResponseData](docs/Model/V1CopyFnaResponseData.md)
 - [V1ErrorResponse](docs/Model/V1ErrorResponse.md)
 - [V1ErrorResponseData](docs/Model/V1ErrorResponseData.md)
 
@@ -108,6 +106,8 @@ Class | Method | HTTP request | Description
     - **fna:fna**: Grants all access to plan/fna (deprecated)
     - **plan:plan**: Grants all access to plan/fna
     - **plan:plan:create**: Creation access on plan
+    - **plan:organization**: Grants all access to plan/organizations
+    - **plan:user**: Grants all access to plan/users
 
 ## Tests
 
