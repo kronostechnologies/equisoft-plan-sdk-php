@@ -3,6 +3,7 @@
 README.md
 docs/Api/CommandApi.md
 docs/Api/OrganizationsApi.md
+docs/Api/PlansApi.md
 docs/Api/PlansV1Api.md
 docs/Api/UsersApi.md
 docs/Model/CmdCopyFNA.md
@@ -10,6 +11,8 @@ docs/Model/CmdCopyFNAResponse.md
 docs/Model/ErrorResponse.md
 docs/Model/OrganizationsListOrganizationsResponse.md
 docs/Model/OrganizationsOrganization.md
+docs/Model/PlansListPlansResponse.md
+docs/Model/PlansPlan.md
 docs/Model/UsersListUsersResponse.md
 docs/Model/UsersUser.md
 docs/Model/V1ErrorResponse.md
@@ -17,6 +20,7 @@ docs/Model/V1ErrorResponseData.md
 git_push.sh
 lib/Api/CommandApi.php
 lib/Api/OrganizationsApi.php
+lib/Api/PlansApi.php
 lib/Api/PlansV1Api.php
 lib/Api/UsersApi.php
 lib/ApiException.php
@@ -28,6 +32,8 @@ lib/Model/ErrorResponse.php
 lib/Model/ModelInterface.php
 lib/Model/OrganizationsListOrganizationsResponse.php
 lib/Model/OrganizationsOrganization.php
+lib/Model/PlansListPlansResponse.php
+lib/Model/PlansPlan.php
 lib/Model/UsersListUsersResponse.php
 lib/Model/UsersUser.php
 lib/Model/V1ErrorResponse.php
@@ -36,6 +42,7 @@ lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/CommandApiTest.php
 test/Api/OrganizationsApiTest.php
+test/Api/PlansApiTest.php
 test/Api/PlansV1ApiTest.php
 test/Api/UsersApiTest.php
 test/Model/CmdCopyFNAResponseTest.php
@@ -43,6 +50,8 @@ test/Model/CmdCopyFNATest.php
 test/Model/ErrorResponseTest.php
 test/Model/OrganizationsListOrganizationsResponseTest.php
 test/Model/OrganizationsOrganizationTest.php
+test/Model/PlansListPlansResponseTest.php
+test/Model/PlansPlanTest.php
 test/Model/UsersListUsersResponseTest.php
 test/Model/UsersUserTest.php
 test/Model/V1ErrorResponseDataTest.php
