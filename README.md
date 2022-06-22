@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 *PlansV1Api* | [**getPlan**](docs/Api/PlansV1Api.md#getplan) | **GET** /fna/api/fna/{id} | Returns the plan
 *PlansV1Api* | [**updatePlanExternalId**](docs/Api/PlansV1Api.md#updateplanexternalid) | **PUT** /fna/{fna-uuid}/client/{client-uuid}/external-id | Update client UUID id of an FNA
 *UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /fna/api/v2/users/{id} | 
+*UsersApi* | [**getUserContext**](docs/Api/UsersApi.md#getusercontext) | **GET** /fna/api/v2/userContext | 
 
 ## Models
 
@@ -96,6 +97,7 @@ Class | Method | HTTP request | Description
 - [PlansPlan](docs/Model/PlansPlan.md)
 - [UsersListUsersResponse](docs/Model/UsersListUsersResponse.md)
 - [UsersUser](docs/Model/UsersUser.md)
+- [UsersUserContext](docs/Model/UsersUserContext.md)
 - [V1ErrorResponse](docs/Model/V1ErrorResponse.md)
 - [V1ErrorResponseData](docs/Model/V1ErrorResponseData.md)
 
