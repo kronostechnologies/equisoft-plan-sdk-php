@@ -59,6 +59,7 @@ class UsersListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
+        'count' => 'int',
         'results' => '\Equisoft\SDK\EquisoftPlan\Model\UsersUser[]'
     ];
 
@@ -70,6 +71,7 @@ class UsersListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'count' => null,
         'results' => null
     ];
 
@@ -100,6 +102,7 @@ class UsersListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
+        'count' => 'count',
         'results' => 'results'
     ];
 
@@ -109,6 +112,7 @@ class UsersListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
+        'count' => 'setCount',
         'results' => 'setResults'
     ];
 
@@ -118,6 +122,7 @@ class UsersListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
+        'count' => 'getCount',
         'results' => 'getResults'
     ];
 
@@ -178,6 +183,7 @@ class UsersListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
+        $this->container['count'] = $data['count'] ?? null;
         $this->container['results'] = $data['results'] ?? null;
     }
 
@@ -190,6 +196,9 @@ class UsersListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
+        if ($this->container['count'] === null) {
+            $invalidProperties[] = "'count' can't be null";
+        }
         if ($this->container['results'] === null) {
             $invalidProperties[] = "'results' can't be null";
         }
@@ -207,6 +216,30 @@ class UsersListUsersResponse implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets count
+     *
+     * @return int
+     */
+    public function getCount()
+    {
+        return $this->container['count'];
+    }
+
+    /**
+     * Sets count
+     *
+     * @param int $count Number of users returned
+     *
+     * @return self
+     */
+    public function setCount($count)
+    {
+        $this->container['count'] = $count;
+
+        return $this;
+    }
 
     /**
      * Gets results

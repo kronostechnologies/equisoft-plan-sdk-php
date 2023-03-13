@@ -190,6 +190,9 @@ class CmdCopyFNAResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
+        if ($this->container['newFnaUuid'] === null) {
+            $invalidProperties[] = "'newFnaUuid' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -208,7 +211,7 @@ class CmdCopyFNAResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets newFnaUuid
      *
-     * @return string|null
+     * @return string
      */
     public function getNewFnaUuid()
     {
@@ -218,7 +221,7 @@ class CmdCopyFNAResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets newFnaUuid
      *
-     * @param string|null $newFnaUuid Uuid of the newly created fna.
+     * @param string $newFnaUuid Uuid of the newly created fna.
      *
      * @return self
      */

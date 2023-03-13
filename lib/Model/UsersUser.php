@@ -235,6 +235,9 @@ class UsersUser implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['isAdmin'] === null) {
             $invalidProperties[] = "'isAdmin' can't be null";
         }
+        if ($this->container['isActive'] === null) {
+            $invalidProperties[] = "'isActive' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -373,7 +376,7 @@ class UsersUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets isActive
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIsActive()
     {
@@ -383,7 +386,7 @@ class UsersUser implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets isActive
      *
-     * @param bool|null $isActive isActive
+     * @param bool $isActive isActive
      *
      * @return self
      */

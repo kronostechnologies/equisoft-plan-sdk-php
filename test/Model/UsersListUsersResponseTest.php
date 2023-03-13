@@ -80,6 +80,15 @@ class UsersListUsersResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "count"
+     */
+    public function testPropertyCount()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "results"
      */
     public function testPropertyResults()
