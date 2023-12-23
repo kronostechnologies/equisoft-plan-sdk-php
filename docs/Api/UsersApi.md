@@ -1,11 +1,11 @@
 # Equisoft\SDK\EquisoftPlan\UsersApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getUser()**](UsersApi.md#getUser) | **GET** /fna/api/v2/users/{id} | 
-[**getUserContext()**](UsersApi.md#getUserContext) | **GET** /fna/api/v2/userContext | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getUser()**](UsersApi.md#getUser) | **GET** /fna/api/v2/users/{id} |  |
+| [**getUserContext()**](UsersApi.md#getUserContext) | **GET** /fna/api/v2/userContext |  |
 
 
 ## `getUser()`
@@ -45,9 +45,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 

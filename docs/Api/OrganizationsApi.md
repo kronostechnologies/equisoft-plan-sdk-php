@@ -1,12 +1,12 @@
 # Equisoft\SDK\EquisoftPlan\OrganizationsApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getOrganization()**](OrganizationsApi.md#getOrganization) | **GET** /fna/api/v2/organizations/{id} | 
-[**listOrganizationUsers()**](OrganizationsApi.md#listOrganizationUsers) | **GET** /fna/api/v2/organizations/{id}/users | 
-[**listOrganizations()**](OrganizationsApi.md#listOrganizations) | **GET** /fna/api/v2/organizations | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getOrganization()**](OrganizationsApi.md#getOrganization) | **GET** /fna/api/v2/organizations/{id} |  |
+| [**listOrganizationUsers()**](OrganizationsApi.md#listOrganizationUsers) | **GET** /fna/api/v2/organizations/{id}/users |  |
+| [**listOrganizations()**](OrganizationsApi.md#listOrganizations) | **GET** /fna/api/v2/organizations |  |
 
 
 ## `getOrganization()`
@@ -46,9 +46,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 
@@ -104,9 +104,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**|  | |
 
 ### Return type
 
@@ -162,9 +162,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **organizationUuid** | **string**|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **organizationUuid** | **string**|  | |
 
 ### Return type
 

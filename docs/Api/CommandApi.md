@@ -1,10 +1,10 @@
 # Equisoft\SDK\EquisoftPlan\CommandApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**cmdCopyFNA()**](CommandApi.md#cmdCopyFNA) | **POST** /fna/api/v2/cmd/copy/fna | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**cmdCopyFNA()**](CommandApi.md#cmdCopyFNA) | **POST** /fna/api/v2/cmd/copy/fna |  |
 
 
 ## `cmdCopyFNA()`
@@ -44,9 +44,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **cmdCopyFNA** | [**\Equisoft\SDK\EquisoftPlan\Model\CmdCopyFNA**](../Model/CmdCopyFNA.md)|  |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **cmdCopyFNA** | [**\Equisoft\SDK\EquisoftPlan\Model\CmdCopyFNA**](../Model/CmdCopyFNA.md)|  | |
 
 ### Return type
 

@@ -1,11 +1,11 @@
 # Equisoft\SDK\EquisoftPlan\PlansV1Api
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getPlan()**](PlansV1Api.md#getPlan) | **GET** /fna/api/fna/{id} | Returns the plan
-[**updatePlanExternalId()**](PlansV1Api.md#updatePlanExternalId) | **PUT** /fna/{fna-uuid}/client/{client-uuid}/external-id | Update client UUID id of an FNA
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getPlan()**](PlansV1Api.md#getPlan) | **GET** /fna/api/fna/{id} | Returns the plan |
+| [**updatePlanExternalId()**](PlansV1Api.md#updatePlanExternalId) | **PUT** /fna/{fna-uuid}/client/{client-uuid}/external-id | Update client UUID id of an FNA |
 
 
 ## `getPlan()`
@@ -40,9 +40,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| Fna id |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **int**| Fna id | |
 
 ### Return type
 
@@ -95,11 +95,11 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **fnaUuid** | **string**| UUID of the FNA |
- **clientUuid** | **string**| UUID of the client to update |
- **body** | **string**| New UUID of the client |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **fnaUuid** | **string**| UUID of the FNA | |
+| **clientUuid** | **string**| UUID of the client to update | |
+| **body** | **string**| New UUID of the client | |
 
 ### Return type
 
