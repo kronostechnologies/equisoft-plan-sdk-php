@@ -1,10 +1,10 @@
 # Equisoft\SDK\EquisoftPlan\PlansApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**listPlans()**](PlansApi.md#listPlans) | **GET** /fna/api/v2/plans | 
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**listPlans()**](PlansApi.md#listPlans) | **GET** /fna/api/v2/plans |  |
 
 
 ## `listPlans()`
@@ -44,9 +44,9 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **clientExternalUuid** | **string**|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **clientExternalUuid** | **string**|  | [optional] |
 
 ### Return type
 
