@@ -82,16 +82,4 @@ class PlansV1ApiTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test case for updatePlanExternalId
-     *
-     * Update client UUID id of an FNA.
-     *
-     */
-    public function testUpdatePlanExternalId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
 }

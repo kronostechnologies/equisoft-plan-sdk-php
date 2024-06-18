@@ -82,7 +82,6 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**listOrganizations**](docs/Api/OrganizationsApi.md#listorganizations) | **GET** /fna/api/v2/organizations | 
 *PlansApi* | [**listPlans**](docs/Api/PlansApi.md#listplans) | **GET** /fna/api/v2/plans | 
 *PlansV1Api* | [**getPlan**](docs/Api/PlansV1Api.md#getplan) | **GET** /fna/api/fna/{id} | Returns the plan
-*PlansV1Api* | [**updatePlanExternalId**](docs/Api/PlansV1Api.md#updateplanexternalid) | **PUT** /fna/{fna-uuid}/client/{client-uuid}/external-id | Update client UUID id of an FNA
 *UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /fna/api/v2/users/{id} | 
 *UsersApi* | [**getUserContext**](docs/Api/UsersApi.md#getusercontext) | **GET** /fna/api/v2/userContext | 
 
