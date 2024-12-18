@@ -9,6 +9,8 @@ docs/Api/UsersApi.md
 docs/Model/CmdCopyFNA.md
 docs/Model/CmdCopyFNAResponse.md
 docs/Model/ErrorResponse.md
+docs/Model/OrganizationsCreateOrganizationPayload.md
+docs/Model/OrganizationsCreateOrganizationResponse.md
 docs/Model/OrganizationsListOrganizationsResponse.md
 docs/Model/OrganizationsOrganization.md
 docs/Model/PlansListPlansResponse.md
@@ -31,6 +33,8 @@ lib/Model/CmdCopyFNA.php
 lib/Model/CmdCopyFNAResponse.php
 lib/Model/ErrorResponse.php
 lib/Model/ModelInterface.php
+lib/Model/OrganizationsCreateOrganizationPayload.php
+lib/Model/OrganizationsCreateOrganizationResponse.php
 lib/Model/OrganizationsListOrganizationsResponse.php
 lib/Model/OrganizationsOrganization.php
 lib/Model/PlansListPlansResponse.php
@@ -50,6 +54,8 @@ test/Api/UsersApiTest.php
 test/Model/CmdCopyFNAResponseTest.php
 test/Model/CmdCopyFNATest.php
 test/Model/ErrorResponseTest.php
+test/Model/OrganizationsCreateOrganizationPayloadTest.php
+test/Model/OrganizationsCreateOrganizationResponseTest.php
 test/Model/OrganizationsListOrganizationsResponseTest.php
 test/Model/OrganizationsOrganizationTest.php
 test/Model/PlansListPlansResponseTest.php

@@ -4,10 +4,69 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**createOrganization()**](OrganizationsApi.md#createOrganization) | **POST** /fna/api/v2/organizations |  |
 | [**getOrganization()**](OrganizationsApi.md#getOrganization) | **GET** /fna/api/v2/organizations/{id} |  |
 | [**listOrganizationUsers()**](OrganizationsApi.md#listOrganizationUsers) | **GET** /fna/api/v2/organizations/{id}/users |  |
 | [**listOrganizations()**](OrganizationsApi.md#listOrganizations) | **GET** /fna/api/v2/organizations |  |
 
+
+## `createOrganization()`
+
+```php
+createOrganization($organizationsCreateOrganizationPayload): \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationResponse
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = Equisoft\SDK\EquisoftPlan\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Equisoft\SDK\EquisoftPlan\Api\OrganizationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$organizationsCreateOrganizationPayload = new \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload(); // \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload
+
+try {
+    $result = $apiInstance->createOrganization($organizationsCreateOrganizationPayload);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrganizationsApi->createOrganization: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **organizationsCreateOrganizationPayload** | [**\Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload**](../Model/OrganizationsCreateOrganizationPayload.md)|  | |
+
+### Return type
+
+[**\Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationResponse**](../Model/OrganizationsCreateOrganizationResponse.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getOrganization()`
 

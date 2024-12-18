@@ -77,6 +77,7 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CommandApi* | [**cmdCopyFNA**](docs/Api/CommandApi.md#cmdcopyfna) | **POST** /fna/api/v2/cmd/copy/fna | 
+*OrganizationsApi* | [**createOrganization**](docs/Api/OrganizationsApi.md#createorganization) | **POST** /fna/api/v2/organizations | 
 *OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /fna/api/v2/organizations/{id} | 
 *OrganizationsApi* | [**listOrganizationUsers**](docs/Api/OrganizationsApi.md#listorganizationusers) | **GET** /fna/api/v2/organizations/{id}/users | 
 *OrganizationsApi* | [**listOrganizations**](docs/Api/OrganizationsApi.md#listorganizations) | **GET** /fna/api/v2/organizations | 
@@ -90,6 +91,8 @@ Class | Method | HTTP request | Description
 - [CmdCopyFNA](docs/Model/CmdCopyFNA.md)
 - [CmdCopyFNAResponse](docs/Model/CmdCopyFNAResponse.md)
 - [ErrorResponse](docs/Model/ErrorResponse.md)
+- [OrganizationsCreateOrganizationPayload](docs/Model/OrganizationsCreateOrganizationPayload.md)
+- [OrganizationsCreateOrganizationResponse](docs/Model/OrganizationsCreateOrganizationResponse.md)
 - [OrganizationsListOrganizationsResponse](docs/Model/OrganizationsListOrganizationsResponse.md)
 - [OrganizationsOrganization](docs/Model/OrganizationsOrganization.md)
 - [PlansListPlansResponse](docs/Model/PlansListPlansResponse.md)
