@@ -123,13 +123,4 @@ class UsersUserContextTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "isActive"
-     */
-    public function testPropertyIsActive()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

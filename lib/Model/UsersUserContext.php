@@ -61,8 +61,7 @@ class UsersUserContext implements ModelInterface, ArrayAccess, \JsonSerializable
         'userType' => 'string',
         'name' => 'string',
         'email' => 'string',
-        'isAdmin' => 'bool',
-        'isActive' => 'bool'
+        'isAdmin' => 'bool'
     ];
 
     /**
@@ -77,8 +76,7 @@ class UsersUserContext implements ModelInterface, ArrayAccess, \JsonSerializable
         'userType' => null,
         'name' => null,
         'email' => null,
-        'isAdmin' => null,
-        'isActive' => null
+        'isAdmin' => null
     ];
 
     /**
@@ -91,8 +89,7 @@ class UsersUserContext implements ModelInterface, ArrayAccess, \JsonSerializable
         'userType' => false,
         'name' => false,
         'email' => false,
-        'isAdmin' => false,
-        'isActive' => false
+        'isAdmin' => false
     ];
 
     /**
@@ -185,8 +182,7 @@ class UsersUserContext implements ModelInterface, ArrayAccess, \JsonSerializable
         'userType' => 'userType',
         'name' => 'name',
         'email' => 'email',
-        'isAdmin' => 'isAdmin',
-        'isActive' => 'isActive'
+        'isAdmin' => 'isAdmin'
     ];
 
     /**
@@ -199,8 +195,7 @@ class UsersUserContext implements ModelInterface, ArrayAccess, \JsonSerializable
         'userType' => 'setUserType',
         'name' => 'setName',
         'email' => 'setEmail',
-        'isAdmin' => 'setIsAdmin',
-        'isActive' => 'setIsActive'
+        'isAdmin' => 'setIsAdmin'
     ];
 
     /**
@@ -213,8 +208,7 @@ class UsersUserContext implements ModelInterface, ArrayAccess, \JsonSerializable
         'userType' => 'getUserType',
         'name' => 'getName',
         'email' => 'getEmail',
-        'isAdmin' => 'getIsAdmin',
-        'isActive' => 'getIsActive'
+        'isAdmin' => 'getIsAdmin'
     ];
 
     /**
@@ -279,7 +273,6 @@ class UsersUserContext implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('isAdmin', $data ?? [], null);
-        $this->setIfExists('isActive', $data ?? [], null);
     }
 
     /**
@@ -323,9 +316,6 @@ class UsersUserContext implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['isAdmin'] === null) {
             $invalidProperties[] = "'isAdmin' can't be null";
-        }
-        if ($this->container['isActive'] === null) {
-            $invalidProperties[] = "'isActive' can't be null";
         }
         return $invalidProperties;
     }
@@ -473,33 +463,6 @@ class UsersUserContext implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable isAdmin cannot be null');
         }
         $this->container['isAdmin'] = $isAdmin;
-
-        return $this;
-    }
-
-    /**
-     * Gets isActive
-     *
-     * @return bool
-     */
-    public function getIsActive()
-    {
-        return $this->container['isActive'];
-    }
-
-    /**
-     * Sets isActive
-     *
-     * @param bool $isActive isActive
-     *
-     * @return self
-     */
-    public function setIsActive($isActive)
-    {
-        if (is_null($isActive)) {
-            throw new \InvalidArgumentException('non-nullable isActive cannot be null');
-        }
-        $this->container['isActive'] = $isActive;
 
         return $this;
     }
