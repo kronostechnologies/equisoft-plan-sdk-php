@@ -71,6 +71,9 @@ class UsersApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'createUser' => [
+            'application/json',
+        ],
         'getUser' => [
             'application/json',
         ],
@@ -123,6 +126,410 @@ class UsersApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation createUser
+     *
+     * @param  Int $id id (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload userCreateUserPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
+     *
+     * @throws \Equisoft\SDK\EquisoftPlan\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
+     */
+    public function createUser($id, $userCreateUserPayload, string $contentType = self::contentTypes['createUser'][0])
+    {
+        list($response) = $this->createUserWithHttpInfo($id, $userCreateUserPayload, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation createUserWithHttpInfo
+     *
+     * @param  Int $id (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
+     *
+     * @throws \Equisoft\SDK\EquisoftPlan\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function createUserWithHttpInfo($id, $userCreateUserPayload, string $contentType = self::contentTypes['createUser'][0])
+    {
+        $request = $this->createUserRequest($id, $userCreateUserPayload, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 401:
+                    if ('\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation createUserAsync
+     *
+     * @param  Int $id (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createUserAsync($id, $userCreateUserPayload, string $contentType = self::contentTypes['createUser'][0])
+    {
+        return $this->createUserAsyncWithHttpInfo($id, $userCreateUserPayload, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation createUserAsyncWithHttpInfo
+     *
+     * @param  Int $id (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createUserAsyncWithHttpInfo($id, $userCreateUserPayload, string $contentType = self::contentTypes['createUser'][0])
+    {
+        $returnType = '\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse';
+        $request = $this->createUserRequest($id, $userCreateUserPayload, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'createUser'
+     *
+     * @param  Int $id (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function createUserRequest($id, $userCreateUserPayload, string $contentType = self::contentTypes['createUser'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling createUser'
+            );
+        }
+
+        // verify the required parameter 'userCreateUserPayload' is set
+        if ($userCreateUserPayload === null || (is_array($userCreateUserPayload) && count($userCreateUserPayload) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $userCreateUserPayload when calling createUser'
+            );
+        }
+
+
+        $resourcePath = '/fna/api/v2/organizations/{id}/users';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($userCreateUserPayload)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($userCreateUserPayload));
+            } else {
+                $httpBody = $userCreateUserPayload;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        if (is_string($formParamValueItem)) {
+                            // JSON part
+                            $multipartContents[] = [
+                                'name' => $formParamName,
+                                'contents' => $formParamValueItem,
+                                'headers' => [
+                                    'Content-Disposition' => "form-data; name=\"$formParamName\"; filename=\"$formParamName.json\"",
+                                    'Content-Type' => 'application/json; charset=UTF-8'
+                                ]
+                            ];
+                        } else {
+                            $multipartContents[] = [
+                                'name' => $formParamName,
+                                'contents' => $formParamValueItem
+                            ];
+                        }
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**

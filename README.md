@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**listOrganizations**](docs/Api/OrganizationsApi.md#listorganizations) | **GET** /fna/api/v2/organizations | 
 *PlansApi* | [**listPlans**](docs/Api/PlansApi.md#listplans) | **GET** /fna/api/v2/plans | 
 *PlansV1Api* | [**getPlan**](docs/Api/PlansV1Api.md#getplan) | **GET** /fna/api/fna/{id} | Returns the plan
+*UsersApi* | [**createUser**](docs/Api/UsersApi.md#createuser) | **POST** /fna/api/v2/organizations/{id}/users | 
 *UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /fna/api/v2/users/{id} | 
 *UsersApi* | [**getUserContext**](docs/Api/UsersApi.md#getusercontext) | **GET** /fna/api/v2/userContext | 
 
@@ -97,6 +98,8 @@ Class | Method | HTTP request | Description
 - [OrganizationsOrganization](docs/Model/OrganizationsOrganization.md)
 - [PlansListPlansResponse](docs/Model/PlansListPlansResponse.md)
 - [PlansPlan](docs/Model/PlansPlan.md)
+- [UserCreateUserPayload](docs/Model/UserCreateUserPayload.md)
+- [UserCreateUserResponse](docs/Model/UserCreateUserResponse.md)
 - [UsersListUsersResponse](docs/Model/UsersListUsersResponse.md)
 - [UsersUser](docs/Model/UsersUser.md)
 - [UsersUserContext](docs/Model/UsersUserContext.md)

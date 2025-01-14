@@ -15,6 +15,8 @@ docs/Model/OrganizationsListOrganizationsResponse.md
 docs/Model/OrganizationsOrganization.md
 docs/Model/PlansListPlansResponse.md
 docs/Model/PlansPlan.md
+docs/Model/UserCreateUserPayload.md
+docs/Model/UserCreateUserResponse.md
 docs/Model/UsersListUsersResponse.md
 docs/Model/UsersUser.md
 docs/Model/UsersUserContext.md
@@ -39,6 +41,8 @@ lib/Model/OrganizationsListOrganizationsResponse.php
 lib/Model/OrganizationsOrganization.php
 lib/Model/PlansListPlansResponse.php
 lib/Model/PlansPlan.php
+lib/Model/UserCreateUserPayload.php
+lib/Model/UserCreateUserResponse.php
 lib/Model/UsersListUsersResponse.php
 lib/Model/UsersUser.php
 lib/Model/UsersUserContext.php
@@ -60,6 +64,8 @@ test/Model/OrganizationsListOrganizationsResponseTest.php
 test/Model/OrganizationsOrganizationTest.php
 test/Model/PlansListPlansResponseTest.php
 test/Model/PlansPlanTest.php
+test/Model/UserCreateUserPayloadTest.php
+test/Model/UserCreateUserResponseTest.php
 test/Model/UsersListUsersResponseTest.php
 test/Model/UsersUserContextTest.php
 test/Model/UsersUserTest.php
