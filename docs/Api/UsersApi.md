@@ -34,7 +34,7 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = new \Equisoft\SDK\EquisoftPlan\Model\Int(); // Int
+$id = 56; // int
 $userCreateUserPayload = new \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload(); // \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload
 
 try {
@@ -49,7 +49,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | [**Int**](../Model/.md)|  | |
+| **id** | **int**|  | |
 | **userCreateUserPayload** | [**\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload**](../Model/UserCreateUserPayload.md)|  | |
 
 ### Return type

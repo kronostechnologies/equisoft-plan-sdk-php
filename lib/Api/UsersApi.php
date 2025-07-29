@@ -133,7 +133,7 @@ class UsersApi
     /**
      * Operation createUser
      *
-     * @param  Int $id id (required)
+     * @param  int $id id (required)
      * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload userCreateUserPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
@@ -150,7 +150,7 @@ class UsersApi
     /**
      * Operation createUserWithHttpInfo
      *
-     * @param  Int $id (required)
+     * @param  int $id (required)
      * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
@@ -262,7 +262,7 @@ class UsersApi
     /**
      * Operation createUserAsync
      *
-     * @param  Int $id (required)
+     * @param  int $id (required)
      * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
@@ -282,7 +282,7 @@ class UsersApi
     /**
      * Operation createUserAsyncWithHttpInfo
      *
-     * @param  Int $id (required)
+     * @param  int $id (required)
      * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
@@ -333,7 +333,7 @@ class UsersApi
     /**
      * Create request for operation 'createUser'
      *
-     * @param  Int $id (required)
+     * @param  int $id (required)
      * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
