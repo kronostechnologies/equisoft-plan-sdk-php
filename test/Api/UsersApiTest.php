@@ -84,6 +84,18 @@ class UsersApiTest extends TestCase
     }
 
     /**
+     * Test case for deleteUser
+     *
+     * .
+     *
+     */
+    public function testDeleteUser()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getUser
      *
      * .
