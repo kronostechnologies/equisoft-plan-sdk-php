@@ -6,7 +6,6 @@ composer.json
 docs/Api/CommandApi.md
 docs/Api/OrganizationsApi.md
 docs/Api/PlansApi.md
-docs/Api/PlansV1Api.md
 docs/Api/UsersApi.md
 docs/Model/CmdCopyFNA.md
 docs/Model/CmdCopyFNAResponse.md
@@ -29,7 +28,6 @@ phpunit.xml.dist
 src/Api/CommandApi.php
 src/Api/OrganizationsApi.php
 src/Api/PlansApi.php
-src/Api/PlansV1Api.php
 src/Api/UsersApi.php
 src/ApiException.php
 src/Configuration.php
