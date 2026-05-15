@@ -77,6 +77,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *CommandApi* | [**cmdCopyFNA**](docs/Api/CommandApi.md#cmdcopyfna) | **POST** /fna/api/v2/cmd/copy/fna | 
 *OrganizationsApi* | [**createOrganization**](docs/Api/OrganizationsApi.md#createorganization) | **POST** /fna/api/v2/organizations | 
+*OrganizationsApi* | [**deleteOrganization**](docs/Api/OrganizationsApi.md#deleteorganization) | **DELETE** /fna/api/v2/organizations/{organizationUuid} | 
 *OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /fna/api/v2/organizations/{id} | 
 *OrganizationsApi* | [**listOrganizationUsers**](docs/Api/OrganizationsApi.md#listorganizationusers) | **GET** /fna/api/v2/organizations/{id}/users | 
 *OrganizationsApi* | [**listOrganizations**](docs/Api/OrganizationsApi.md#listorganizations) | **GET** /fna/api/v2/organizations | 
