@@ -765,7 +765,7 @@ class OrganizationsApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrganizationWithHttpInfo(
         int $id,
@@ -800,6 +800,12 @@ class OrganizationsApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -848,6 +854,14 @@ class OrganizationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1095,7 +1109,7 @@ class OrganizationsApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listOrganizationUsersWithHttpInfo(
         int $id,
@@ -1130,6 +1144,12 @@ class OrganizationsApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -1172,6 +1192,14 @@ class OrganizationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
