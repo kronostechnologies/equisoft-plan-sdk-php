@@ -52,4 +52,3 @@ src/Model/UsersUserContext.php
 src/Model/V1ErrorResponse.php
 src/Model/V1ErrorResponseData.php
 src/ObjectSerializer.php
-tests/Model/UserTransferDataPayloadTest.php
