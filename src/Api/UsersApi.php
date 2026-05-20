@@ -85,6 +85,9 @@ class UsersApi
         'getUserContext' => [
             'application/json',
         ],
+        'transferUserData' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -1395,6 +1398,311 @@ class UsersApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation transferUserData
+     *
+     * @param  string $userAccountUuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload userTransferDataPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return \Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|null
+     */
+    public function transferUserData(
+        string $userAccountUuid,
+        \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
+        string $contentType = self::contentTypes['transferUserData'][0]
+    ): ?\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
+    {
+        list($response) = $this->transferUserDataWithHttpInfo($userAccountUuid, $userTransferDataPayload, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation transferUserDataWithHttpInfo
+     *
+     * @param  string $userAccountUuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
+     *
+     * @throws ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function transferUserDataWithHttpInfo(
+        string $userAccountUuid,
+        \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
+        string $contentType = self::contentTypes['transferUserData'][0]
+    ): array
+    {
+        $request = $this->transferUserDataRequest($userAccountUuid, $userTransferDataPayload, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation transferUserDataAsync
+     *
+     * @param  string $userAccountUuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function transferUserDataAsync(
+        string $userAccountUuid,
+        \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
+        string $contentType = self::contentTypes['transferUserData'][0]
+    ): PromiseInterface
+    {
+        return $this->transferUserDataAsyncWithHttpInfo($userAccountUuid, $userTransferDataPayload, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation transferUserDataAsyncWithHttpInfo
+     *
+     * @param  string $userAccountUuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return PromiseInterface
+     */
+    public function transferUserDataAsyncWithHttpInfo(
+        string $userAccountUuid,
+        \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
+        string $contentType = self::contentTypes['transferUserData'][0]
+    ): PromiseInterface
+    {
+        $returnType = '';
+        $request = $this->transferUserDataRequest($userAccountUuid, $userTransferDataPayload, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'transferUserData'
+     *
+     * @param  string $userAccountUuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
+     *
+     * @throws InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function transferUserDataRequest(
+        string $userAccountUuid,
+        \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
+        string $contentType = self::contentTypes['transferUserData'][0]
+    ): Request
+    {
+
+        // verify the required parameter 'userAccountUuid' is set
+        if ($userAccountUuid === null || (is_array($userAccountUuid) && count($userAccountUuid) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $userAccountUuid when calling transferUserData'
+            );
+        }
+
+        // verify the required parameter 'userTransferDataPayload' is set
+        if ($userTransferDataPayload === null || (is_array($userTransferDataPayload) && count($userTransferDataPayload) === 0)) {
+            throw new InvalidArgumentException(
+                'Missing the required parameter $userTransferDataPayload when calling transferUserData'
+            );
+        }
+
+
+        $resourcePath = '/fna/api/v2/users/{userAccountUuid}/transfer-data';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($userAccountUuid !== null) {
+            $resourcePath = str_replace(
+                '{' . 'userAccountUuid' . '}',
+                ObjectSerializer::toPathValue($userAccountUuid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($userTransferDataPayload)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($userTransferDataPayload));
+            } else {
+                $httpBody = $userTransferDataPayload;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        if (is_string($formParamValueItem)) {
+                            // JSON part
+                            $multipartContents[] = [
+                                'name' => $formParamName,
+                                'contents' => $formParamValueItem,
+                                'headers' => [
+                                    'Content-Disposition' => "form-data; name=\"$formParamName\"; filename=\"$formParamName.json\"",
+                                    'Content-Type' => 'application/json; charset=UTF-8'
+                                ]
+                            ];
+                        } else {
+                            $multipartContents[] = [
+                                'name' => $formParamName,
+                                'contents' => $formParamValueItem
+                            ];
+                        }
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

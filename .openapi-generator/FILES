@@ -18,6 +18,7 @@ docs/Model/PlansListPlansResponse.md
 docs/Model/PlansPlan.md
 docs/Model/UserCreateUserPayload.md
 docs/Model/UserCreateUserResponse.md
+docs/Model/UserTransferDataPayload.md
 docs/Model/UsersListUsersResponse.md
 docs/Model/UsersUser.md
 docs/Model/UsersUserContext.md
@@ -44,9 +45,11 @@ src/Model/PlansListPlansResponse.php
 src/Model/PlansPlan.php
 src/Model/UserCreateUserPayload.php
 src/Model/UserCreateUserResponse.php
+src/Model/UserTransferDataPayload.php
 src/Model/UsersListUsersResponse.php
 src/Model/UsersUser.php
 src/Model/UsersUserContext.php
 src/Model/V1ErrorResponse.php
 src/Model/V1ErrorResponseData.php
 src/ObjectSerializer.php
+tests/Model/UserTransferDataPayloadTest.php

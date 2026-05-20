@@ -86,6 +86,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**deleteUser**](docs/Api/UsersApi.md#deleteuser) | **DELETE** /fna/api/v2/users/{userAccountUuid} | 
 *UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /fna/api/v2/users/{id} | 
 *UsersApi* | [**getUserContext**](docs/Api/UsersApi.md#getusercontext) | **GET** /fna/api/v2/userContext | 
+*UsersApi* | [**transferUserData**](docs/Api/UsersApi.md#transferuserdata) | **POST** /fna/api/v2/users/{userAccountUuid}/transfer-data | 
 
 ## Models
 
@@ -100,6 +101,7 @@ Class | Method | HTTP request | Description
 - [PlansPlan](docs/Model/PlansPlan.md)
 - [UserCreateUserPayload](docs/Model/UserCreateUserPayload.md)
 - [UserCreateUserResponse](docs/Model/UserCreateUserResponse.md)
+- [UserTransferDataPayload](docs/Model/UserTransferDataPayload.md)
 - [UsersListUsersResponse](docs/Model/UsersListUsersResponse.md)
 - [UsersUser](docs/Model/UsersUser.md)
 - [UsersUserContext](docs/Model/UsersUserContext.md)

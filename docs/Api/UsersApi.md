@@ -8,6 +8,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /fna/api/v2/users/{userAccountUuid} |  |
 | [**getUser()**](UsersApi.md#getUser) | **GET** /fna/api/v2/users/{id} |  |
 | [**getUserContext()**](UsersApi.md#getUserContext) | **GET** /fna/api/v2/userContext |  |
+| [**transferUserData()**](UsersApi.md#transferUserData) | **POST** /fna/api/v2/users/{userAccountUuid}/transfer-data |  |
 
 
 ## `createUser()`
@@ -234,6 +235,65 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `transferUserData()`
+
+```php
+transferUserData($userAccountUuid, $userTransferDataPayload)
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = Equisoft\SDK\EquisoftPlan\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Equisoft\SDK\EquisoftPlan\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$userAccountUuid = 'userAccountUuid_example'; // string | UUID of the source user account
+$userTransferDataPayload = new \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload(); // \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload
+
+try {
+    $apiInstance->transferUserData($userAccountUuid, $userTransferDataPayload);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->transferUserData: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **userAccountUuid** | **string**| UUID of the source user account | |
+| **userTransferDataPayload** | [**\Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload**](../Model/UserTransferDataPayload.md)|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
