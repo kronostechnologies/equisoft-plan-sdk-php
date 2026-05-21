@@ -3,7 +3,6 @@
 .travis.yml
 README.md
 composer.json
-docs/Api/CommandApi.md
 docs/Api/OrganizationsApi.md
 docs/Api/PlansApi.md
 docs/Api/UsersApi.md
@@ -26,7 +25,6 @@ docs/Model/V1ErrorResponse.md
 docs/Model/V1ErrorResponseData.md
 git_push.sh
 phpunit.xml.dist
-src/Api/CommandApi.php
 src/Api/OrganizationsApi.php
 src/Api/PlansApi.php
 src/Api/UsersApi.php

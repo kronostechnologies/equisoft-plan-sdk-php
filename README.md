@@ -52,19 +52,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Equisoft\SDK\EquisoftPlan\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new Equisoft\SDK\EquisoftPlan\Api\CommandApi(
+$apiInstance = new Equisoft\SDK\EquisoftPlan\Api\OrganizationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$cmdCopyFNA = new \Equisoft\SDK\EquisoftPlan\Model\CmdCopyFNA(); // \Equisoft\SDK\EquisoftPlan\Model\CmdCopyFNA
+$organizationsCreateOrganizationPayload = new \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload(); // \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload
 
 try {
-    $result = $apiInstance->cmdCopyFNA($cmdCopyFNA);
+    $result = $apiInstance->createOrganization($organizationsCreateOrganizationPayload);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling CommandApi->cmdCopyFNA: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrganizationsApi->createOrganization: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -75,7 +75,6 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CommandApi* | [**cmdCopyFNA**](docs/Api/CommandApi.md#cmdcopyfna) | **POST** /fna/api/v2/cmd/copy/fna | 
 *OrganizationsApi* | [**createOrganization**](docs/Api/OrganizationsApi.md#createorganization) | **POST** /fna/api/v2/organizations | 
 *OrganizationsApi* | [**deleteOrganization**](docs/Api/OrganizationsApi.md#deleteorganization) | **DELETE** /fna/api/v2/organizations/{organizationUuid} | 
 *OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /fna/api/v2/organizations/{id} | 
