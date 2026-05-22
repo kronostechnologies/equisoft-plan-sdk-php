@@ -4,17 +4,17 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createUser()**](UsersApi.md#createUser) | **POST** /fna/api/v2/organizations/{id}/users |  |
-| [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /fna/api/v2/users/{userAccountUuid} |  |
-| [**getUser()**](UsersApi.md#getUser) | **GET** /fna/api/v2/users/{id} |  |
+| [**createUser()**](UsersApi.md#createUser) | **POST** /fna/api/v2/organizations/{uuid}/users |  |
+| [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /fna/api/v2/users/{uuid} |  |
+| [**getUser()**](UsersApi.md#getUser) | **GET** /fna/api/v2/users/{uuid} |  |
 | [**getUserContext()**](UsersApi.md#getUserContext) | **GET** /fna/api/v2/userContext |  |
-| [**transferUserData()**](UsersApi.md#transferUserData) | **POST** /fna/api/v2/users/{userAccountUuid}/transfer-data |  |
+| [**transferUserData()**](UsersApi.md#transferUserData) | **POST** /fna/api/v2/users/{uuid}/transfer-data |  |
 
 
 ## `createUser()`
 
 ```php
-createUser($id, $userCreateUserPayload): \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse
+createUser($uuid, $userCreateUserPayload): \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse
 ```
 
 
@@ -36,11 +36,11 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int
-$userCreateUserPayload = new \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload(); // \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload
+$uuid = 'uuid_example'; // string
+$userCreateUserPayload = new \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload(); // \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload | User creation payload
 
 try {
-    $result = $apiInstance->createUser($id, $userCreateUserPayload);
+    $result = $apiInstance->createUser($uuid, $userCreateUserPayload);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->createUser: ', $e->getMessage(), PHP_EOL;
@@ -51,8 +51,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**|  | |
-| **userCreateUserPayload** | [**\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload**](../Model/UserCreateUserPayload.md)|  | |
+| **uuid** | **string**|  | |
+| **userCreateUserPayload** | [**\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload**](../Model/UserCreateUserPayload.md)| User creation payload | |
 
 ### Return type
 
@@ -74,7 +74,7 @@ try {
 ## `deleteUser()`
 
 ```php
-deleteUser($userAccountUuid)
+deleteUser($uuid)
 ```
 
 
@@ -96,10 +96,10 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$userAccountUuid = 'userAccountUuid_example'; // string
+$uuid = 'uuid_example'; // string
 
 try {
-    $apiInstance->deleteUser($userAccountUuid);
+    $apiInstance->deleteUser($uuid);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->deleteUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -109,7 +109,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **userAccountUuid** | **string**|  | |
+| **uuid** | **string**|  | |
 
 ### Return type
 
@@ -131,7 +131,7 @@ void (empty response body)
 ## `getUser()`
 
 ```php
-getUser($id): \Equisoft\SDK\EquisoftPlan\Model\UsersUser
+getUser($uuid): \Equisoft\SDK\EquisoftPlan\Model\UsersUser
 ```
 
 
@@ -153,10 +153,10 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int
+$uuid = 'uuid_example'; // string
 
 try {
-    $result = $apiInstance->getUser($id);
+    $result = $apiInstance->getUser($uuid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->getUser: ', $e->getMessage(), PHP_EOL;
@@ -167,7 +167,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**|  | |
+| **uuid** | **string**|  | |
 
 ### Return type
 
@@ -244,7 +244,7 @@ This endpoint does not need any parameter.
 ## `transferUserData()`
 
 ```php
-transferUserData($userAccountUuid, $userTransferDataPayload)
+transferUserData($uuid, $userTransferDataPayload)
 ```
 
 
@@ -266,11 +266,11 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\UsersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$userAccountUuid = 'userAccountUuid_example'; // string | UUID of the source user account
-$userTransferDataPayload = new \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload(); // \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload
+$uuid = 'uuid_example'; // string | UUID of the source user account
+$userTransferDataPayload = new \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload(); // \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload | User data transfer payload
 
 try {
-    $apiInstance->transferUserData($userAccountUuid, $userTransferDataPayload);
+    $apiInstance->transferUserData($uuid, $userTransferDataPayload);
 } catch (Exception $e) {
     echo 'Exception when calling UsersApi->transferUserData: ', $e->getMessage(), PHP_EOL;
 }
@@ -280,8 +280,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **userAccountUuid** | **string**| UUID of the source user account | |
-| **userTransferDataPayload** | [**\Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload**](../Model/UserTransferDataPayload.md)|  | |
+| **uuid** | **string**| UUID of the source user account | |
+| **userTransferDataPayload** | [**\Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload**](../Model/UserTransferDataPayload.md)| User data transfer payload | |
 
 ### Return type
 

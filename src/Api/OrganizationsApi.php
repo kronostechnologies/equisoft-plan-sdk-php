@@ -139,7 +139,7 @@ class OrganizationsApi
     /**
      * Operation createOrganization
      *
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload organizationsCreateOrganizationPayload (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload Organization creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrganization'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -158,7 +158,7 @@ class OrganizationsApi
     /**
      * Operation createOrganizationWithHttpInfo
      *
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload Organization creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrganization'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -283,7 +283,7 @@ class OrganizationsApi
     /**
      * Operation createOrganizationAsync
      *
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload Organization creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrganization'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -305,7 +305,7 @@ class OrganizationsApi
     /**
      * Operation createOrganizationAsyncWithHttpInfo
      *
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload Organization creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrganization'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -358,7 +358,7 @@ class OrganizationsApi
     /**
      * Create request for operation 'createOrganization'
      *
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload $organizationsCreateOrganizationPayload Organization creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrganization'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -468,7 +468,7 @@ class OrganizationsApi
     /**
      * Operation deleteOrganization
      *
-     * @param  string $organizationUuid organizationUuid (required)
+     * @param  string $uuid uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOrganization'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -476,18 +476,18 @@ class OrganizationsApi
      * @return \Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|null
      */
     public function deleteOrganization(
-        string $organizationUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteOrganization'][0]
     ): ?\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
     {
-        list($response) = $this->deleteOrganizationWithHttpInfo($organizationUuid, $contentType);
+        list($response) = $this->deleteOrganizationWithHttpInfo($uuid, $contentType);
         return $response;
     }
 
     /**
      * Operation deleteOrganizationWithHttpInfo
      *
-     * @param  string $organizationUuid (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOrganization'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -495,11 +495,11 @@ class OrganizationsApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteOrganizationWithHttpInfo(
-        string $organizationUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteOrganization'][0]
     ): array
     {
-        $request = $this->deleteOrganizationRequest($organizationUuid, $contentType);
+        $request = $this->deleteOrganizationRequest($uuid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -568,18 +568,18 @@ class OrganizationsApi
     /**
      * Operation deleteOrganizationAsync
      *
-     * @param  string $organizationUuid (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOrganization'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function deleteOrganizationAsync(
-        string $organizationUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteOrganization'][0]
     ): PromiseInterface
     {
-        return $this->deleteOrganizationAsyncWithHttpInfo($organizationUuid, $contentType)
+        return $this->deleteOrganizationAsyncWithHttpInfo($uuid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -590,19 +590,19 @@ class OrganizationsApi
     /**
      * Operation deleteOrganizationAsyncWithHttpInfo
      *
-     * @param  string $organizationUuid (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOrganization'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function deleteOrganizationAsyncWithHttpInfo(
-        string $organizationUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteOrganization'][0]
     ): PromiseInterface
     {
         $returnType = '';
-        $request = $this->deleteOrganizationRequest($organizationUuid, $contentType);
+        $request = $this->deleteOrganizationRequest($uuid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -630,27 +630,27 @@ class OrganizationsApi
     /**
      * Create request for operation 'deleteOrganization'
      *
-     * @param  string $organizationUuid (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOrganization'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function deleteOrganizationRequest(
-        string $organizationUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteOrganization'][0]
     ): Request
     {
 
-        // verify the required parameter 'organizationUuid' is set
-        if ($organizationUuid === null || (is_array($organizationUuid) && count($organizationUuid) === 0)) {
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $organizationUuid when calling deleteOrganization'
+                'Missing the required parameter $uuid when calling deleteOrganization'
             );
         }
 
 
-        $resourcePath = '/fna/api/v2/organizations/{organizationUuid}';
+        $resourcePath = '/fna/api/v2/organizations/{uuid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -660,10 +660,10 @@ class OrganizationsApi
 
 
         // path params
-        if ($organizationUuid !== null) {
+        if ($uuid !== null) {
             $resourcePath = str_replace(
-                '{' . 'organizationUuid' . '}',
-                ObjectSerializer::toPathValue($organizationUuid),
+                '{' . 'uuid' . '}',
+                ObjectSerializer::toPathValue($uuid),
                 $resourcePath
             );
         }
@@ -741,7 +741,7 @@ class OrganizationsApi
     /**
      * Operation getOrganization
      *
-     * @param  int $id id (required)
+     * @param  string $uuid uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrganization'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -749,30 +749,30 @@ class OrganizationsApi
      * @return \Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
      */
     public function getOrganization(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getOrganization'][0]
     ): \Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
     {
-        list($response) = $this->getOrganizationWithHttpInfo($id, $contentType);
+        list($response) = $this->getOrganizationWithHttpInfo($uuid, $contentType);
         return $response;
     }
 
     /**
      * Operation getOrganizationWithHttpInfo
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrganization'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrganizationWithHttpInfo(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getOrganization'][0]
     ): array
     {
-        $request = $this->getOrganizationRequest($id, $contentType);
+        $request = $this->getOrganizationRequest($uuid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -800,12 +800,6 @@ class OrganizationsApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -858,14 +852,6 @@ class OrganizationsApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -899,18 +885,18 @@ class OrganizationsApi
     /**
      * Operation getOrganizationAsync
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrganization'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function getOrganizationAsync(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getOrganization'][0]
     ): PromiseInterface
     {
-        return $this->getOrganizationAsyncWithHttpInfo($id, $contentType)
+        return $this->getOrganizationAsyncWithHttpInfo($uuid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -921,19 +907,19 @@ class OrganizationsApi
     /**
      * Operation getOrganizationAsyncWithHttpInfo
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrganization'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function getOrganizationAsyncWithHttpInfo(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getOrganization'][0]
     ): PromiseInterface
     {
         $returnType = '\Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization';
-        $request = $this->getOrganizationRequest($id, $contentType);
+        $request = $this->getOrganizationRequest($uuid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -974,27 +960,27 @@ class OrganizationsApi
     /**
      * Create request for operation 'getOrganization'
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOrganization'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function getOrganizationRequest(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getOrganization'][0]
     ): Request
     {
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $id when calling getOrganization'
+                'Missing the required parameter $uuid when calling getOrganization'
             );
         }
 
 
-        $resourcePath = '/fna/api/v2/organizations/{id}';
+        $resourcePath = '/fna/api/v2/organizations/{uuid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1004,10 +990,10 @@ class OrganizationsApi
 
 
         // path params
-        if ($id !== null) {
+        if ($uuid !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'uuid' . '}',
+                ObjectSerializer::toPathValue($uuid),
                 $resourcePath
             );
         }
@@ -1085,7 +1071,7 @@ class OrganizationsApi
     /**
      * Operation listOrganizationUsers
      *
-     * @param  int $id id (required)
+     * @param  string $uuid uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listOrganizationUsers'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1093,30 +1079,30 @@ class OrganizationsApi
      * @return \Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
      */
     public function listOrganizationUsers(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['listOrganizationUsers'][0]
     ): \Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
     {
-        list($response) = $this->listOrganizationUsersWithHttpInfo($id, $contentType);
+        list($response) = $this->listOrganizationUsersWithHttpInfo($uuid, $contentType);
         return $response;
     }
 
     /**
      * Operation listOrganizationUsersWithHttpInfo
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listOrganizationUsers'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listOrganizationUsersWithHttpInfo(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['listOrganizationUsers'][0]
     ): array
     {
-        $request = $this->listOrganizationUsersRequest($id, $contentType);
+        $request = $this->listOrganizationUsersRequest($uuid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1144,12 +1130,6 @@ class OrganizationsApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -1196,14 +1176,6 @@ class OrganizationsApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1229,18 +1201,18 @@ class OrganizationsApi
     /**
      * Operation listOrganizationUsersAsync
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listOrganizationUsers'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function listOrganizationUsersAsync(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['listOrganizationUsers'][0]
     ): PromiseInterface
     {
-        return $this->listOrganizationUsersAsyncWithHttpInfo($id, $contentType)
+        return $this->listOrganizationUsersAsyncWithHttpInfo($uuid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1251,19 +1223,19 @@ class OrganizationsApi
     /**
      * Operation listOrganizationUsersAsyncWithHttpInfo
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listOrganizationUsers'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function listOrganizationUsersAsyncWithHttpInfo(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['listOrganizationUsers'][0]
     ): PromiseInterface
     {
         $returnType = '\Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse';
-        $request = $this->listOrganizationUsersRequest($id, $contentType);
+        $request = $this->listOrganizationUsersRequest($uuid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1304,27 +1276,27 @@ class OrganizationsApi
     /**
      * Create request for operation 'listOrganizationUsers'
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listOrganizationUsers'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function listOrganizationUsersRequest(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['listOrganizationUsers'][0]
     ): Request
     {
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $id when calling listOrganizationUsers'
+                'Missing the required parameter $uuid when calling listOrganizationUsers'
             );
         }
 
 
-        $resourcePath = '/fna/api/v2/organizations/{id}/users';
+        $resourcePath = '/fna/api/v2/organizations/{uuid}/users';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1334,10 +1306,10 @@ class OrganizationsApi
 
 
         // path params
-        if ($id !== null) {
+        if ($uuid !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'uuid' . '}',
+                ObjectSerializer::toPathValue($uuid),
                 $resourcePath
             );
         }

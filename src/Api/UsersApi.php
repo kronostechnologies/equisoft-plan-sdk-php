@@ -139,8 +139,8 @@ class UsersApi
     /**
      * Operation createUser
      *
-     * @param  int $id id (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload userCreateUserPayload (required)
+     * @param  string $uuid uuid (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload User creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -148,33 +148,33 @@ class UsersApi
      * @return \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
      */
     public function createUser(
-        int $id,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload,
         string $contentType = self::contentTypes['createUser'][0]
     ): \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
     {
-        list($response) = $this->createUserWithHttpInfo($id, $userCreateUserPayload, $contentType);
+        list($response) = $this->createUserWithHttpInfo($uuid, $userCreateUserPayload, $contentType);
         return $response;
     }
 
     /**
      * Operation createUserWithHttpInfo
      *
-     * @param  int $id (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
+     * @param  string $uuid (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload User creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createUserWithHttpInfo(
-        int $id,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload,
         string $contentType = self::contentTypes['createUser'][0]
     ): array
     {
-        $request = $this->createUserRequest($id, $userCreateUserPayload, $contentType);
+        $request = $this->createUserRequest($uuid, $userCreateUserPayload, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -202,12 +202,6 @@ class UsersApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -254,14 +248,6 @@ class UsersApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -287,20 +273,20 @@ class UsersApi
     /**
      * Operation createUserAsync
      *
-     * @param  int $id (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
+     * @param  string $uuid (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload User creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function createUserAsync(
-        int $id,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload,
         string $contentType = self::contentTypes['createUser'][0]
     ): PromiseInterface
     {
-        return $this->createUserAsyncWithHttpInfo($id, $userCreateUserPayload, $contentType)
+        return $this->createUserAsyncWithHttpInfo($uuid, $userCreateUserPayload, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -311,21 +297,21 @@ class UsersApi
     /**
      * Operation createUserAsyncWithHttpInfo
      *
-     * @param  int $id (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
+     * @param  string $uuid (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload User creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function createUserAsyncWithHttpInfo(
-        int $id,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload,
         string $contentType = self::contentTypes['createUser'][0]
     ): PromiseInterface
     {
         $returnType = '\Equisoft\SDK\EquisoftPlan\Model\UserCreateUserResponse';
-        $request = $this->createUserRequest($id, $userCreateUserPayload, $contentType);
+        $request = $this->createUserRequest($uuid, $userCreateUserPayload, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -366,24 +352,24 @@ class UsersApi
     /**
      * Create request for operation 'createUser'
      *
-     * @param  int $id (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload (required)
+     * @param  string $uuid (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload User creation payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createUser'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function createUserRequest(
-        int $id,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserCreateUserPayload $userCreateUserPayload,
         string $contentType = self::contentTypes['createUser'][0]
     ): Request
     {
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $id when calling createUser'
+                'Missing the required parameter $uuid when calling createUser'
             );
         }
 
@@ -395,7 +381,7 @@ class UsersApi
         }
 
 
-        $resourcePath = '/fna/api/v2/organizations/{id}/users';
+        $resourcePath = '/fna/api/v2/organizations/{uuid}/users';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -405,10 +391,10 @@ class UsersApi
 
 
         // path params
-        if ($id !== null) {
+        if ($uuid !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'uuid' . '}',
+                ObjectSerializer::toPathValue($uuid),
                 $resourcePath
             );
         }
@@ -493,7 +479,7 @@ class UsersApi
     /**
      * Operation deleteUser
      *
-     * @param  string $userAccountUuid userAccountUuid (required)
+     * @param  string $uuid uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteUser'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -501,18 +487,18 @@ class UsersApi
      * @return \Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|null
      */
     public function deleteUser(
-        string $userAccountUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteUser'][0]
     ): ?\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
     {
-        list($response) = $this->deleteUserWithHttpInfo($userAccountUuid, $contentType);
+        list($response) = $this->deleteUserWithHttpInfo($uuid, $contentType);
         return $response;
     }
 
     /**
      * Operation deleteUserWithHttpInfo
      *
-     * @param  string $userAccountUuid (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteUser'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -520,11 +506,11 @@ class UsersApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteUserWithHttpInfo(
-        string $userAccountUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteUser'][0]
     ): array
     {
-        $request = $this->deleteUserRequest($userAccountUuid, $contentType);
+        $request = $this->deleteUserRequest($uuid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -585,18 +571,18 @@ class UsersApi
     /**
      * Operation deleteUserAsync
      *
-     * @param  string $userAccountUuid (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteUser'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function deleteUserAsync(
-        string $userAccountUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteUser'][0]
     ): PromiseInterface
     {
-        return $this->deleteUserAsyncWithHttpInfo($userAccountUuid, $contentType)
+        return $this->deleteUserAsyncWithHttpInfo($uuid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -607,19 +593,19 @@ class UsersApi
     /**
      * Operation deleteUserAsyncWithHttpInfo
      *
-     * @param  string $userAccountUuid (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteUser'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function deleteUserAsyncWithHttpInfo(
-        string $userAccountUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteUser'][0]
     ): PromiseInterface
     {
         $returnType = '';
-        $request = $this->deleteUserRequest($userAccountUuid, $contentType);
+        $request = $this->deleteUserRequest($uuid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -647,27 +633,27 @@ class UsersApi
     /**
      * Create request for operation 'deleteUser'
      *
-     * @param  string $userAccountUuid (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteUser'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function deleteUserRequest(
-        string $userAccountUuid,
+        string $uuid,
         string $contentType = self::contentTypes['deleteUser'][0]
     ): Request
     {
 
-        // verify the required parameter 'userAccountUuid' is set
-        if ($userAccountUuid === null || (is_array($userAccountUuid) && count($userAccountUuid) === 0)) {
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $userAccountUuid when calling deleteUser'
+                'Missing the required parameter $uuid when calling deleteUser'
             );
         }
 
 
-        $resourcePath = '/fna/api/v2/users/{userAccountUuid}';
+        $resourcePath = '/fna/api/v2/users/{uuid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -677,10 +663,10 @@ class UsersApi
 
 
         // path params
-        if ($userAccountUuid !== null) {
+        if ($uuid !== null) {
             $resourcePath = str_replace(
-                '{' . 'userAccountUuid' . '}',
-                ObjectSerializer::toPathValue($userAccountUuid),
+                '{' . 'uuid' . '}',
+                ObjectSerializer::toPathValue($uuid),
                 $resourcePath
             );
         }
@@ -758,7 +744,7 @@ class UsersApi
     /**
      * Operation getUser
      *
-     * @param  int $id id (required)
+     * @param  string $uuid uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUser'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -766,30 +752,30 @@ class UsersApi
      * @return \Equisoft\SDK\EquisoftPlan\Model\UsersUser|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
      */
     public function getUser(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getUser'][0]
     ): \Equisoft\SDK\EquisoftPlan\Model\UsersUser|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
     {
-        list($response) = $this->getUserWithHttpInfo($id, $contentType);
+        list($response) = $this->getUserWithHttpInfo($uuid, $contentType);
         return $response;
     }
 
     /**
      * Operation getUserWithHttpInfo
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUser'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \Equisoft\SDK\EquisoftPlan\Model\UsersUser|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Equisoft\SDK\EquisoftPlan\Model\UsersUser|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserWithHttpInfo(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getUser'][0]
     ): array
     {
-        $request = $this->getUserRequest($id, $contentType);
+        $request = $this->getUserRequest($uuid, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -817,12 +803,6 @@ class UsersApi
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Equisoft\SDK\EquisoftPlan\Model\UsersUser',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
                         $request,
                         $response,
                     );
@@ -875,14 +855,6 @@ class UsersApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -916,18 +888,18 @@ class UsersApi
     /**
      * Operation getUserAsync
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUser'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function getUserAsync(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getUser'][0]
     ): PromiseInterface
     {
-        return $this->getUserAsyncWithHttpInfo($id, $contentType)
+        return $this->getUserAsyncWithHttpInfo($uuid, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -938,19 +910,19 @@ class UsersApi
     /**
      * Operation getUserAsyncWithHttpInfo
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUser'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function getUserAsyncWithHttpInfo(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getUser'][0]
     ): PromiseInterface
     {
         $returnType = '\Equisoft\SDK\EquisoftPlan\Model\UsersUser';
-        $request = $this->getUserRequest($id, $contentType);
+        $request = $this->getUserRequest($uuid, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -991,27 +963,27 @@ class UsersApi
     /**
      * Create request for operation 'getUser'
      *
-     * @param  int $id (required)
+     * @param  string $uuid (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUser'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function getUserRequest(
-        int $id,
+        string $uuid,
         string $contentType = self::contentTypes['getUser'][0]
     ): Request
     {
 
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $id when calling getUser'
+                'Missing the required parameter $uuid when calling getUser'
             );
         }
 
 
-        $resourcePath = '/fna/api/v2/users/{id}';
+        $resourcePath = '/fna/api/v2/users/{uuid}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1021,10 +993,10 @@ class UsersApi
 
 
         // path params
-        if ($id !== null) {
+        if ($uuid !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'uuid' . '}',
+                ObjectSerializer::toPathValue($uuid),
                 $resourcePath
             );
         }
@@ -1407,8 +1379,8 @@ class UsersApi
     /**
      * Operation transferUserData
      *
-     * @param  string $userAccountUuid UUID of the source user account (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload userTransferDataPayload (required)
+     * @param  string $uuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload User data transfer payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1416,20 +1388,20 @@ class UsersApi
      * @return \Equisoft\SDK\EquisoftPlan\Model\ErrorResponse|null
      */
     public function transferUserData(
-        string $userAccountUuid,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
         string $contentType = self::contentTypes['transferUserData'][0]
     ): ?\Equisoft\SDK\EquisoftPlan\Model\ErrorResponse
     {
-        list($response) = $this->transferUserDataWithHttpInfo($userAccountUuid, $userTransferDataPayload, $contentType);
+        list($response) = $this->transferUserDataWithHttpInfo($uuid, $userTransferDataPayload, $contentType);
         return $response;
     }
 
     /**
      * Operation transferUserDataWithHttpInfo
      *
-     * @param  string $userAccountUuid UUID of the source user account (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload (required)
+     * @param  string $uuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload User data transfer payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -1437,12 +1409,12 @@ class UsersApi
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function transferUserDataWithHttpInfo(
-        string $userAccountUuid,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
         string $contentType = self::contentTypes['transferUserData'][0]
     ): array
     {
-        $request = $this->transferUserDataRequest($userAccountUuid, $userTransferDataPayload, $contentType);
+        $request = $this->transferUserDataRequest($uuid, $userTransferDataPayload, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1519,20 +1491,20 @@ class UsersApi
     /**
      * Operation transferUserDataAsync
      *
-     * @param  string $userAccountUuid UUID of the source user account (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload (required)
+     * @param  string $uuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload User data transfer payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function transferUserDataAsync(
-        string $userAccountUuid,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
         string $contentType = self::contentTypes['transferUserData'][0]
     ): PromiseInterface
     {
-        return $this->transferUserDataAsyncWithHttpInfo($userAccountUuid, $userTransferDataPayload, $contentType)
+        return $this->transferUserDataAsyncWithHttpInfo($uuid, $userTransferDataPayload, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1543,21 +1515,21 @@ class UsersApi
     /**
      * Operation transferUserDataAsyncWithHttpInfo
      *
-     * @param  string $userAccountUuid UUID of the source user account (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload (required)
+     * @param  string $uuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload User data transfer payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function transferUserDataAsyncWithHttpInfo(
-        string $userAccountUuid,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
         string $contentType = self::contentTypes['transferUserData'][0]
     ): PromiseInterface
     {
         $returnType = '';
-        $request = $this->transferUserDataRequest($userAccountUuid, $userTransferDataPayload, $contentType);
+        $request = $this->transferUserDataRequest($uuid, $userTransferDataPayload, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1585,24 +1557,24 @@ class UsersApi
     /**
      * Create request for operation 'transferUserData'
      *
-     * @param  string $userAccountUuid UUID of the source user account (required)
-     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload (required)
+     * @param  string $uuid UUID of the source user account (required)
+     * @param  \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload User data transfer payload (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferUserData'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function transferUserDataRequest(
-        string $userAccountUuid,
+        string $uuid,
         \Equisoft\SDK\EquisoftPlan\Model\UserTransferDataPayload $userTransferDataPayload,
         string $contentType = self::contentTypes['transferUserData'][0]
     ): Request
     {
 
-        // verify the required parameter 'userAccountUuid' is set
-        if ($userAccountUuid === null || (is_array($userAccountUuid) && count($userAccountUuid) === 0)) {
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
             throw new InvalidArgumentException(
-                'Missing the required parameter $userAccountUuid when calling transferUserData'
+                'Missing the required parameter $uuid when calling transferUserData'
             );
         }
 
@@ -1614,7 +1586,7 @@ class UsersApi
         }
 
 
-        $resourcePath = '/fna/api/v2/users/{userAccountUuid}/transfer-data';
+        $resourcePath = '/fna/api/v2/users/{uuid}/transfer-data';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1624,10 +1596,10 @@ class UsersApi
 
 
         // path params
-        if ($userAccountUuid !== null) {
+        if ($uuid !== null) {
             $resourcePath = str_replace(
-                '{' . 'userAccountUuid' . '}',
-                ObjectSerializer::toPathValue($userAccountUuid),
+                '{' . 'uuid' . '}',
+                ObjectSerializer::toPathValue($uuid),
                 $resourcePath
             );
         }

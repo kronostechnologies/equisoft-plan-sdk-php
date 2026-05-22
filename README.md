@@ -58,7 +58,7 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\OrganizationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$organizationsCreateOrganizationPayload = new \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload(); // \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload
+$organizationsCreateOrganizationPayload = new \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload(); // \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload | Organization creation payload
 
 try {
     $result = $apiInstance->createOrganization($organizationsCreateOrganizationPayload);
@@ -76,16 +76,16 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OrganizationsApi* | [**createOrganization**](docs/Api/OrganizationsApi.md#createorganization) | **POST** /fna/api/v2/organizations | 
-*OrganizationsApi* | [**deleteOrganization**](docs/Api/OrganizationsApi.md#deleteorganization) | **DELETE** /fna/api/v2/organizations/{organizationUuid} | 
-*OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /fna/api/v2/organizations/{id} | 
-*OrganizationsApi* | [**listOrganizationUsers**](docs/Api/OrganizationsApi.md#listorganizationusers) | **GET** /fna/api/v2/organizations/{id}/users | 
+*OrganizationsApi* | [**deleteOrganization**](docs/Api/OrganizationsApi.md#deleteorganization) | **DELETE** /fna/api/v2/organizations/{uuid} | 
+*OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /fna/api/v2/organizations/{uuid} | 
+*OrganizationsApi* | [**listOrganizationUsers**](docs/Api/OrganizationsApi.md#listorganizationusers) | **GET** /fna/api/v2/organizations/{uuid}/users | 
 *OrganizationsApi* | [**listOrganizations**](docs/Api/OrganizationsApi.md#listorganizations) | **GET** /fna/api/v2/organizations | 
 *PlansApi* | [**listPlans**](docs/Api/PlansApi.md#listplans) | **GET** /fna/api/v2/plans | 
-*UsersApi* | [**createUser**](docs/Api/UsersApi.md#createuser) | **POST** /fna/api/v2/organizations/{id}/users | 
-*UsersApi* | [**deleteUser**](docs/Api/UsersApi.md#deleteuser) | **DELETE** /fna/api/v2/users/{userAccountUuid} | 
-*UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /fna/api/v2/users/{id} | 
+*UsersApi* | [**createUser**](docs/Api/UsersApi.md#createuser) | **POST** /fna/api/v2/organizations/{uuid}/users | 
+*UsersApi* | [**deleteUser**](docs/Api/UsersApi.md#deleteuser) | **DELETE** /fna/api/v2/users/{uuid} | 
+*UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /fna/api/v2/users/{uuid} | 
 *UsersApi* | [**getUserContext**](docs/Api/UsersApi.md#getusercontext) | **GET** /fna/api/v2/userContext | 
-*UsersApi* | [**transferUserData**](docs/Api/UsersApi.md#transferuserdata) | **POST** /fna/api/v2/users/{userAccountUuid}/transfer-data | 
+*UsersApi* | [**transferUserData**](docs/Api/UsersApi.md#transferuserdata) | **POST** /fna/api/v2/users/{uuid}/transfer-data | 
 
 ## Models
 
@@ -104,8 +104,6 @@ Class | Method | HTTP request | Description
 - [UsersListUsersResponse](docs/Model/UsersListUsersResponse.md)
 - [UsersUser](docs/Model/UsersUser.md)
 - [UsersUserContext](docs/Model/UsersUserContext.md)
-- [V1ErrorResponse](docs/Model/V1ErrorResponse.md)
-- [V1ErrorResponseData](docs/Model/V1ErrorResponseData.md)
 
 ## Authorization
 

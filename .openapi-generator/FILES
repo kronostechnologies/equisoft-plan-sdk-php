@@ -21,8 +21,6 @@ docs/Model/UserTransferDataPayload.md
 docs/Model/UsersListUsersResponse.md
 docs/Model/UsersUser.md
 docs/Model/UsersUserContext.md
-docs/Model/V1ErrorResponse.md
-docs/Model/V1ErrorResponseData.md
 git_push.sh
 phpunit.xml.dist
 src/Api/OrganizationsApi.php
@@ -47,6 +45,4 @@ src/Model/UserTransferDataPayload.php
 src/Model/UsersListUsersResponse.php
 src/Model/UsersUser.php
 src/Model/UsersUserContext.php
-src/Model/V1ErrorResponse.php
-src/Model/V1ErrorResponseData.php
 src/ObjectSerializer.php

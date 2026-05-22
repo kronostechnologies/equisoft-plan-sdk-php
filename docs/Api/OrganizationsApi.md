@@ -5,9 +5,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createOrganization()**](OrganizationsApi.md#createOrganization) | **POST** /fna/api/v2/organizations |  |
-| [**deleteOrganization()**](OrganizationsApi.md#deleteOrganization) | **DELETE** /fna/api/v2/organizations/{organizationUuid} |  |
-| [**getOrganization()**](OrganizationsApi.md#getOrganization) | **GET** /fna/api/v2/organizations/{id} |  |
-| [**listOrganizationUsers()**](OrganizationsApi.md#listOrganizationUsers) | **GET** /fna/api/v2/organizations/{id}/users |  |
+| [**deleteOrganization()**](OrganizationsApi.md#deleteOrganization) | **DELETE** /fna/api/v2/organizations/{uuid} |  |
+| [**getOrganization()**](OrganizationsApi.md#getOrganization) | **GET** /fna/api/v2/organizations/{uuid} |  |
+| [**listOrganizationUsers()**](OrganizationsApi.md#listOrganizationUsers) | **GET** /fna/api/v2/organizations/{uuid}/users |  |
 | [**listOrganizations()**](OrganizationsApi.md#listOrganizations) | **GET** /fna/api/v2/organizations |  |
 
 
@@ -36,7 +36,7 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\OrganizationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$organizationsCreateOrganizationPayload = new \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload(); // \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload
+$organizationsCreateOrganizationPayload = new \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload(); // \Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload | Organization creation payload
 
 try {
     $result = $apiInstance->createOrganization($organizationsCreateOrganizationPayload);
@@ -50,7 +50,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **organizationsCreateOrganizationPayload** | [**\Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload**](../Model/OrganizationsCreateOrganizationPayload.md)|  | |
+| **organizationsCreateOrganizationPayload** | [**\Equisoft\SDK\EquisoftPlan\Model\OrganizationsCreateOrganizationPayload**](../Model/OrganizationsCreateOrganizationPayload.md)| Organization creation payload | |
 
 ### Return type
 
@@ -72,7 +72,7 @@ try {
 ## `deleteOrganization()`
 
 ```php
-deleteOrganization($organizationUuid)
+deleteOrganization($uuid)
 ```
 
 
@@ -94,10 +94,10 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\OrganizationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$organizationUuid = 'organizationUuid_example'; // string
+$uuid = 'uuid_example'; // string
 
 try {
-    $apiInstance->deleteOrganization($organizationUuid);
+    $apiInstance->deleteOrganization($uuid);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationsApi->deleteOrganization: ', $e->getMessage(), PHP_EOL;
 }
@@ -107,7 +107,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **organizationUuid** | **string**|  | |
+| **uuid** | **string**|  | |
 
 ### Return type
 
@@ -129,7 +129,7 @@ void (empty response body)
 ## `getOrganization()`
 
 ```php
-getOrganization($id): \Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization
+getOrganization($uuid): \Equisoft\SDK\EquisoftPlan\Model\OrganizationsOrganization
 ```
 
 
@@ -151,10 +151,10 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\OrganizationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int
+$uuid = 'uuid_example'; // string
 
 try {
-    $result = $apiInstance->getOrganization($id);
+    $result = $apiInstance->getOrganization($uuid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationsApi->getOrganization: ', $e->getMessage(), PHP_EOL;
@@ -165,7 +165,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**|  | |
+| **uuid** | **string**|  | |
 
 ### Return type
 
@@ -187,7 +187,7 @@ try {
 ## `listOrganizationUsers()`
 
 ```php
-listOrganizationUsers($id): \Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse
+listOrganizationUsers($uuid): \Equisoft\SDK\EquisoftPlan\Model\UsersListUsersResponse
 ```
 
 
@@ -209,10 +209,10 @@ $apiInstance = new Equisoft\SDK\EquisoftPlan\Api\OrganizationsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 56; // int
+$uuid = 'uuid_example'; // string
 
 try {
-    $result = $apiInstance->listOrganizationUsers($id);
+    $result = $apiInstance->listOrganizationUsers($uuid);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrganizationsApi->listOrganizationUsers: ', $e->getMessage(), PHP_EOL;
@@ -223,7 +223,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **int**|  | |
+| **uuid** | **string**|  | |
 
 ### Return type
 
