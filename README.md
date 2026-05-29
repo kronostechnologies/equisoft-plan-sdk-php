@@ -84,7 +84,6 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**createUser**](docs/Api/UsersApi.md#createuser) | **POST** /fna/api/v2/organizations/{uuid}/users | 
 *UsersApi* | [**deleteUser**](docs/Api/UsersApi.md#deleteuser) | **DELETE** /fna/api/v2/users/{uuid} | 
 *UsersApi* | [**getUser**](docs/Api/UsersApi.md#getuser) | **GET** /fna/api/v2/users/{uuid} | 
-*UsersApi* | [**getUserContext**](docs/Api/UsersApi.md#getusercontext) | **GET** /fna/api/v2/userContext | 
 *UsersApi* | [**transferUserData**](docs/Api/UsersApi.md#transferuserdata) | **POST** /fna/api/v2/users/{uuid}/transfer-data | 
 
 ## Models
