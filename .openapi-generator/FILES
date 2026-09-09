@@ -48,4 +48,3 @@ src/Model/UsersListUsersResponse.php
 src/Model/UsersUser.php
 src/Model/UsersUserContext.php
 src/ObjectSerializer.php
-tests/Model/UserMoveUserResponseTest.php
