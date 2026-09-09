@@ -7,6 +7,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**createUser()**](UsersApi.md#createUser) | **POST** /fna/api/v2/organizations/{uuid}/users |  |
 | [**deleteUser()**](UsersApi.md#deleteUser) | **DELETE** /fna/api/v2/users/{uuid} |  |
 | [**getUser()**](UsersApi.md#getUser) | **GET** /fna/api/v2/users/{uuid} |  |
+| [**moveUser()**](UsersApi.md#moveUser) | **POST** /fna/api/v2/organizations/{uuid}/users/{userUuid} |  |
 | [**transferUserData()**](UsersApi.md#transferUserData) | **POST** /fna/api/v2/users/{uuid}/transfer-data |  |
 
 
@@ -171,6 +172,68 @@ try {
 ### Return type
 
 [**\Equisoft\SDK\EquisoftPlan\Model\UsersUser**](../Model/UsersUser.md)
+
+### Authorization
+
+[OAuth2](../../README.md#OAuth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `moveUser()`
+
+```php
+moveUser($uuid, $userUuid): \Equisoft\SDK\EquisoftPlan\Model\UserMoveUserResponse
+```
+
+
+
+Move a user, and the plans he owns, to the organization given in the path.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: OAuth2
+$config = Equisoft\SDK\EquisoftPlan\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Equisoft\SDK\EquisoftPlan\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$uuid = 'uuid_example'; // string | Account organization uuid of the destination organization
+$userUuid = 'userUuid_example'; // string | User account uuid of the user to move
+
+try {
+    $result = $apiInstance->moveUser($uuid, $userUuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->moveUser: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| Account organization uuid of the destination organization | |
+| **userUuid** | **string**| User account uuid of the user to move | |
+
+### Return type
+
+[**\Equisoft\SDK\EquisoftPlan\Model\UserMoveUserResponse**](../Model/UserMoveUserResponse.md)
 
 ### Authorization
 
