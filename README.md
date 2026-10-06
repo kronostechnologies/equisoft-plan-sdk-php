@@ -80,6 +80,7 @@ Class | Method | HTTP request | Description
 *OrganizationsApi* | [**getOrganization**](docs/Api/OrganizationsApi.md#getorganization) | **GET** /fna/api/v2/organizations/{uuid} | 
 *OrganizationsApi* | [**listOrganizationUsers**](docs/Api/OrganizationsApi.md#listorganizationusers) | **GET** /fna/api/v2/organizations/{uuid}/users | 
 *OrganizationsApi* | [**listOrganizations**](docs/Api/OrganizationsApi.md#listorganizations) | **GET** /fna/api/v2/organizations | 
+*PlansApi* | [**listPlanPermissiones**](docs/Api/PlansApi.md#listplanpermissiones) | **GET** /fna/api/v2/plans/{planId}/permissions | 
 *PlansApi* | [**listPlans**](docs/Api/PlansApi.md#listplans) | **GET** /fna/api/v2/plans | 
 *UsersApi* | [**createUser**](docs/Api/UsersApi.md#createuser) | **POST** /fna/api/v2/organizations/{uuid}/users | 
 *UsersApi* | [**deleteUser**](docs/Api/UsersApi.md#deleteuser) | **DELETE** /fna/api/v2/users/{uuid} | 
@@ -98,6 +99,7 @@ Class | Method | HTTP request | Description
 - [OrganizationsOrganization](docs/Model/OrganizationsOrganization.md)
 - [PlansListPlansResponse](docs/Model/PlansListPlansResponse.md)
 - [PlansPlan](docs/Model/PlansPlan.md)
+- [PlansPlanPermission](docs/Model/PlansPlanPermission.md)
 - [UserCreateUserPayload](docs/Model/UserCreateUserPayload.md)
 - [UserCreateUserResponse](docs/Model/UserCreateUserResponse.md)
 - [UserMoveUserResponse](docs/Model/UserMoveUserResponse.md)
